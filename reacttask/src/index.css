@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navigation {
+    list-style: none;
+    display: block;
+    background-color: blue;
+    color: #fff;
+}
+
+.navigation li {
+    list-style: none;
+    display: inline-block;
+}
+
+.navigation a {
+    color: #fff;
+    display: block;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.navigation a.active {
+    background-color: #000;
+}
