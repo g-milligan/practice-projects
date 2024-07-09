@@ -10,7 +10,13 @@
 			"name": "Create Author",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"name\": \"Dad\"\r\n}",
@@ -21,24 +27,90 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/authors",
-					"protocol": "http",
+					"raw": "{{base_url}}/authors",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"authors"
 					]
-				}
+				},
+				"description": "### POST /authors\n\nThis endpoint is used to create a new author.\n\n#### Request Body\n\n- `name` (string, required): The name of the author.\n    \n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n  \"type\": \"object\",\n  \"properties\": {\n    \"id\": {\n      \"type\": \"integer\"\n    },\n    \"name\": {\n      \"type\": \"string\"\n    },\n    \"books\": {\n      \"type\": [\"array\", \"null\"],\n      \"items\": {}\n    }\n  }\n}\n\n ```\n\nThe response will include the `id` of the newly created author, the `name` provided in the request, and a list of `books` associated with the author (if available).\n\nExample response:\n\n``` json\n{\n  \"id\": 0,\n  \"name\": \"Dad\",\n  \"books\": null\n}\n\n ```"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Create Author",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Dad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Jul 2024 22:49:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"Dad\",\n    \"books\": null\n}"
+				}
+			]
 		},
 		{
 			"name": "Create Book",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"title\": \"Landscapes of the Heart\"\r\n}",
@@ -49,65 +121,245 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/books",
-					"protocol": "http",
+					"raw": "{{host}}{{port}}/books",
 					"host": [
-						"localhost"
+						"{{host}}{{port}}"
 					],
-					"port": "8080",
 					"path": [
 						"books"
 					]
-				}
+				},
+				"description": "\n### POST /books\n\nThis endpoint is used to create a new book.\n\n#### Request Body\n- `title` (string, required): The title of the book.\n\nExample:\n```json\n{\n    \"title\": \"Sample Title\"\n}\n```\n\n#### Response\nThe response is in JSON format and has the following schema:\n```json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"id\": {\n            \"type\": \"integer\"\n        },\n        \"title\": {\n            \"type\": \"string\"\n        },\n        \"authors\": {\n            \"type\": [\"array\", \"null\"],\n            \"items\": {\n                \"type\": \"string\"\n            }\n        }\n    }\n}\n```\n\nExample Response:\n```json\n{\n    \"id\": 0,\n    \"title\": \"\",\n    \"authors\": null\n}\n```\n"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Create Book",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Landscapes of the Heart\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Jul 2024 22:49:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"title\": \"Landscapes of the Heart\",\n    \"authors\": null\n}"
+				}
+			]
 		},
 		{
 			"name": "Get Authors",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:8080/authors",
-					"protocol": "http",
+					"raw": "{{host}}{{port}}/authors",
 					"host": [
-						"localhost"
+						"{{host}}{{port}}"
 					],
-					"port": "8080",
 					"path": [
 						"authors"
 					]
-				}
+				},
+				"description": "### GET /authors\n\nThis endpoint retrieves a list of authors.\n\n#### Request\n\nNo request body is required for this endpoint.\n\n#### Response\n\nThe response is a JSON array containing author objects with the following properties:\n\n- `id` (number): The unique identifier for the author.\n- `name` (string): The name of the author.\n- `books` (array): An array of books written by the author.\n    \n\nExample response:\n\n``` json\n[\n    {\n        \"id\": 0,\n        \"name\": \"\",\n        \"books\": []\n    }\n]\n\n ```\n\n#### JSON Schema\n\n``` json\n{\n    \"type\": \"array\",\n    \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n            \"id\": {\n                \"type\": \"number\"\n            },\n            \"name\": {\n                \"type\": \"string\"\n            },\n            \"books\": {\n                \"type\": \"array\"\n            }\n        },\n        \"required\": [\"id\", \"name\", \"books\"]\n    }\n}\n\n ```"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get Authors",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Jul 2024 22:50:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Dad\",\n        \"books\": []\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Dad\",\n        \"books\": []\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Get Books",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "http://localhost:8080/authors",
-					"protocol": "http",
+					"raw": "{{base_url}}/books",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
-						"authors"
+						"books"
 					]
-				}
+				},
+				"description": "### Get Books\n\nThis endpoint retrieves a list of books.\n\n#### Request\n\n- Method: GET\n- URL: `{{host}}{{port}}/books`\n    \n\n#### Response\n\n- Status: 200\n- Content-Type: application/json\n    \n\nExample response body:\n\n``` json\n[{\"id\":0,\"title\":\"\",\"authors\":[]}]\n\n ```"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Get Books",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Jul 2024 22:50:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"Landscapes of the Heart\",\n        \"authors\": []\n    }\n]"
+				}
+			]
 		},
 		{
 			"name": "Update Author",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Herman Melville 2\"\r\n}",
+					"raw": "{\r\n    \"name\": \"Herman Melville\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,28 +367,95 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/authors/1",
-					"protocol": "http",
+					"raw": "{{base_url}}/authors/1",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"authors",
 						"1"
 					]
-				}
+				},
+				"description": "This endpoint allows you to update the details of a specific author using their ID. The request should be sent as an HTTP PUT to the specified URL. The request body should be in raw JSON format and include the updated \"name\" of the author.\n\n### Request Body\n\n- `name` (string, required): The updated name of the author.\n    \n\n### Response\n\nUpon successful execution, the server will respond with a status code of 200 and the updated details of the author in JSON format, including the \"id\", \"name\", and \"books\" associated with the author.\n\n#### Example Response\n\n``` json\n{\n    \"id\": 0,\n    \"name\": \"Herman Melville\",\n    \"books\": null\n}\n\n ```"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Update Author",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Herman Melville\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/authors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Jul 2024 22:50:25 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"name\": \"Herman Melville\",\n    \"books\": null\n}"
+				}
+			]
 		},
 		{
 			"name": "Update Books",
 			"request": {
 				"method": "PUT",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Moby Dick 2\"\r\n}",
+					"raw": "{\r\n    \"title\": \"Moby Dick\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -144,25 +463,92 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/books/1",
-					"protocol": "http",
+					"raw": "{{base_url}}/books/1",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"books",
 						"1"
 					]
-				}
+				},
+				"description": "This endpoint allows you to update the details of a specific book by sending an HTTP PUT request to /books/1.\n\n### Request Body\n\nThe request should include a JSON payload in the raw request body type with the following parameters:\n\n- `title` (string, required): The updated title of the book.\n    \n\n### Response\n\nUpon a successful update, the endpoint returns a 200 status code and a JSON response with the updated details of the book, including:\n\n- `id` (number): The unique identifier of the book.\n- `title` (string): The updated title of the book.\n- `authors` (array): The authors of the book.\n    \n\n#### Example Response\n\n``` json\n{\n    \"id\": 0,\n    \"title\": \"\",\n    \"authors\": null\n}\n\n ```"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Update Books",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Moby Dick\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/books/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Jul 2024 22:50:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"title\": \"Moby Dick\",\n    \"authors\": null\n}"
+				}
+			]
 		},
 		{
 			"name": "Delete Author",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "",
@@ -173,25 +559,88 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/authors/1",
-					"protocol": "http",
+					"raw": "{{base_url}}/authors/1",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"authors",
 						"1"
 					]
-				}
+				},
+				"description": "### Delete Author\n\nThis endpoint is used to delete a specific author by their ID.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\n- Status: 200\n- Content-Type: text/xml\n- Body: The response body is empty."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Delete Author",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/authors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Jul 2024 22:50:46 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
 		},
 		{
 			"name": "Delete Books",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": "",
@@ -202,19 +651,105 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/books/1",
-					"protocol": "http",
+					"raw": "{{base_url}}/books/1",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"books",
 						"1"
 					]
-				}
+				},
+				"description": "### Delete Book\n\nThis endpoint is used to delete a specific book.\n\n#### Request Body\n\nThis request does not require a request body.\n\n#### Response\n\n- Status: 200\n- Content-Type: text/xml\n- Body: The response body is empty."
 			},
-			"response": []
+			"response": [
+				{
+					"name": "Delete Books",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/books/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Jul 2024 22:51:40 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
 		}
 	]
 }

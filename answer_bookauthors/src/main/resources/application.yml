@@ -1,8 +1,2 @@
-spring.application.name: bookauthors
-spring:
-  h2:
-    console:
-        enabled: true
-        path: /h2-console
-        settings.trace: false
-        settings.web-allow-others: false
+spring.application.name: bookauthors        # Application name
+spring.profiles.active: dev                 # Current active profile

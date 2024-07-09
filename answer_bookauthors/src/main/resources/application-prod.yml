@@ -1,0 +1,4 @@
+spring:
+  h2:
+    console:
+        enabled: false                       # Enable H2 console for development

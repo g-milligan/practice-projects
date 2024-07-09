@@ -1,0 +1,8 @@
+spring.application.name: bookauthors        # Application name
+spring:
+  h2:
+    console:
+        enabled: true                       # Enable H2 console for development
+        path: /h2-console                   # Path to access H2 console
+        settings.trace: false               # Disable detailed SQL logging
+        settings.web-allow-others: false    # Restrict access to local machine
