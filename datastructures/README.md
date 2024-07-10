@@ -20,3 +20,5 @@ Run all unit tests with `./mvnw test`
 ## Coding Assignments
 
 [All coding assignments &gt;&gt;](./src/main/java/com/practice/datastructures/)
+
+[All unit tests &gt;&gt;](./src/test/java/com/practice/datastructures)
