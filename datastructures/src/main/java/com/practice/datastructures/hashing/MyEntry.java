@@ -32,7 +32,8 @@ public class MyEntry implements MyEntryAbstract<Integer, String> {
 
     @Override
     public String toString() {
-        return String.format("{key:%i, value:%s}", this.key, this.value);
+        // this string format helps with debugging unit test assertions
+        return String.format("{key:%d, value:%s}", this.key, this.value);
     }
     
 }

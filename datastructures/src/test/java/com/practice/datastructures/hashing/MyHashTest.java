@@ -50,4 +50,25 @@ public class MyHashTest {
     void testContainsFalse() {
         assertEquals(false, unitUnderTest.contains("Hola Mundo"));
     }
+
+    @Test
+    void testMyEntryToString() {
+        assertEquals("{key:6, value:Hi World}", unitUnderTest.get(6).toString());
+    }
+
+    @Test
+    void testPutUpdateExisting() {
+        unitUnderTest.put(6, "updated value"); 
+        assertEquals("updated value", unitUnderTest.get(6).getValue());
+    }
+
+    @Test
+    void testContainsKeyTrue() {
+        assertEquals(true, unitUnderTest.containsKey(7));
+    }
+
+    @Test
+    void testContainsKeyFalse() {
+        assertEquals(false, unitUnderTest.containsKey(99));
+    }
 }
