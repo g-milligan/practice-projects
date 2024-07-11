@@ -9,4 +9,5 @@ import lombok.Setter;
 @Setter
 public class BookAuthor {
     private Long authorId;
+    private Long bookId;
 }
