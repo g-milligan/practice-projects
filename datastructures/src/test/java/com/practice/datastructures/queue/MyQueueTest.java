@@ -9,7 +9,7 @@ public class MyQueueTest {
     private MyQueue unitUnderTest;
 
     @BeforeEach
-    private void setup() {
+    void setup() {
         unitUnderTest = new MyQueue();
     }
 

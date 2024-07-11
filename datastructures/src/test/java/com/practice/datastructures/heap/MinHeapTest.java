@@ -10,7 +10,7 @@ public class MinHeapTest {
     private MinHeap unitUnderTest;
 
     @BeforeEach
-    private void setup() {
+    void setup() {
         unitUnderTest = new MinHeap(15);
 
         unitUnderTest.insert(5);

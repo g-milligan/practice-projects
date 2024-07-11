@@ -14,7 +14,7 @@ public class TraverseBinaryTreeTest {
     private TreeNode rootNode;
 
     @BeforeEach
-    private void setup() {
+    void setup() {
         unitUnderTest = new TraverseBinaryTree();
 
         rootNode = new TreeNode(3);

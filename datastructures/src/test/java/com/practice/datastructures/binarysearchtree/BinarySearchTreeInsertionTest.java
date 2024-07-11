@@ -15,7 +15,7 @@ public class BinarySearchTreeInsertionTest {
     private TreeNode rootNode;
 
     @BeforeEach
-    private void setup() {
+    void setup() {
         rootNode = new TreeNode(4);
         rootNode.setLeft(new TreeNode(2));
         rootNode.setRight(new TreeNode(7));

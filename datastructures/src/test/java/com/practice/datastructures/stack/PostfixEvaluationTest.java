@@ -10,7 +10,7 @@ public class PostfixEvaluationTest {
     private PostfixEvaluation unitUnderTest;
 
     @BeforeEach
-    private void setup() {
+    void setup() {
         unitUnderTest = new PostfixEvaluation();
     }
 

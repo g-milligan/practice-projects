@@ -10,7 +10,7 @@ public class SecondLargestTest {
     private SecondLargest unitUnderTest;
 
     @BeforeEach
-    private void setup() {
+    void setup() {
         unitUnderTest = new SecondLargest();
     }
 

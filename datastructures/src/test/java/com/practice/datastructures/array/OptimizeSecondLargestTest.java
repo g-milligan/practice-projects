@@ -10,7 +10,7 @@ public class OptimizeSecondLargestTest {
     private OptimizeSecondLargest unitUnderTest;
 
     @BeforeEach
-    private void setup() {
+    void setup() {
         unitUnderTest = new OptimizeSecondLargest();
     }
 

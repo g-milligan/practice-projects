@@ -10,7 +10,7 @@ public class MyHashTest {
     private MyHash unitUnderTest;
 
     @BeforeEach
-    private void setup() {
+    void setup() {
         unitUnderTest = new MyHash();
 
         unitUnderTest.put(8, "Thank you God for life");

@@ -10,7 +10,7 @@ public class HashingAnswerTest {
     private HashingAnswer unitUnderTest;
 
     @BeforeEach
-    private void setup() {
+    void setup() {
         unitUnderTest = new HashingAnswer(10);
     }
 

@@ -10,7 +10,7 @@ public class ReverseLinkedListTest {
     private ReverseLinkedList unitUnderTest;
 
     @BeforeEach
-    private void setup() {
+    void setup() {
         unitUnderTest = new ReverseLinkedList();
     }
 
