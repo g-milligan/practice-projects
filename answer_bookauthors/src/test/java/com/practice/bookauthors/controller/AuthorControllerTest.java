@@ -23,15 +23,15 @@ public class AuthorControllerTest {
 
     @BeforeAll
     private static void setup() {
-    mockMvc = MockMvcBuilders.standaloneSetup(new AuthorController()).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(new AuthorController()).build();
     }
 
     @Test
     void testCreateAuthor() throws Exception {
         mockMvc.perform(post("/authors")
-        .contentType(MediaType.APPLICATION_JSON)
-        .content("{\"name\":\"Dad\"}"))
-        .andExpect(status().isOk());
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"name\":\"Dad\"}"))
+                .andExpect(status().isOk());
     }
 
     @Test
